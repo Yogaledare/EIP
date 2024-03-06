@@ -7,6 +7,13 @@ class Person {
     private double height;
     private double weight;
 
+
+    public Person(string fName, string lName) {
+        FName = fName;
+        LName = lName; 
+    }
+    
+
     public int Age {
         get => age;
         set {
@@ -28,11 +35,11 @@ class Person {
                 throw new ArgumentException("FName is mandatory.");
             }
 
-            if (FName.Length < fNameLower) {
+            if (value.Length < fNameLower) {
                 throw new ArgumentException($"FName cannot be shorter than {fNameLower} characters.");
             }
 
-            if (FName.Length > fNameUpper) {
+            if (value.Length > fNameUpper) {
                 throw new ArgumentException($"FName cannot be longer than {fNameUpper} characters.");
             }
 
@@ -50,11 +57,11 @@ class Person {
                 throw new ArgumentException("LName is mandatory.");
             }
 
-            if (LName.Length < lNameLower) {
+            if (value.Length < lNameLower) {
                 throw new ArgumentException($"LName cannot be shorter than {lNameLower} characters.");
             }
 
-            if (LName.Length > lNameUpper) {
+            if (value.Length > lNameUpper) {
                 throw new ArgumentException($"LName cannot be longer than {lNameUpper} characters.");
             }
 
