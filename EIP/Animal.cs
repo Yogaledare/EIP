@@ -21,25 +21,8 @@ public abstract class Animal {
 
 
     public virtual string Stats() {
-        return $"Age: {Age}, Weight: {Weight}, Name: {Name}"; 
+        return $"Age: {Age}, Weight: {Weight}, Name: {Name}";
     }
-    
-    
-
-    public string Stats2() {
-
-        StringBuilder stringBuilder = new StringBuilder();
-        var properties = this.GetType().GetProperties(BindingFlags.Public | BindingFlags.Instance);
-
-        foreach (var propertyInfo in properties) {
-            var name = propertyInfo.Name; 
-            var value = propertyInfo.GetValue(this);
-            stringBuilder.Append($"{name}: {value}, "); 
-        }
-
-        return stringBuilder.ToString(); 
-    }
-    
 }
 
 public class Horse : Animal {
@@ -55,7 +38,7 @@ public class Horse : Animal {
 
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", IsWhite: {IsWhite}"; 
+        return baseStats + $", IsWhite: {IsWhite}";
     }
 }
 
@@ -73,7 +56,7 @@ public class Dog : Animal {
 
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", Breed: {Breed}"; 
+        return baseStats + $", Breed: {Breed}";
     }
 }
 
@@ -87,10 +70,10 @@ public class Hedgehog : Animal {
     public override void DoSound() {
         Console.WriteLine("Sniff");
     }
-    
+
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", IsCurledUp: {IsCurledUp}"; 
+        return baseStats + $", IsCurledUp: {IsCurledUp}";
     }
 }
 
@@ -104,12 +87,11 @@ public class Worm : Animal {
     public override void DoSound() {
         Console.WriteLine("Slither");
     }
-    
+
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", NumStripes: {NumStripes}"; 
+        return baseStats + $", NumStripes: {NumStripes}";
     }
-    
 }
 
 public class Bird : Animal {
@@ -122,12 +104,11 @@ public class Bird : Animal {
     public override void DoSound() {
         Console.WriteLine("Chirp");
     }
-    
+
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", Color: {Color}"; 
+        return baseStats + $", Color: {Color}";
     }
-    
 }
 
 public class Wolf : Animal {
@@ -139,12 +120,11 @@ public class Wolf : Animal {
     public override void DoSound() {
         Console.WriteLine("Howl");
     }
-    
+
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", IsAlpha: {IsAlpha}"; 
+        return baseStats + $", IsAlpha: {IsAlpha}";
     }
-    
 }
 
 public class Pelican : Bird {
@@ -154,10 +134,10 @@ public class Pelican : Bird {
         color) {
         BeakCapacity = beakCapacity;
     }
-    
+
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", BeakCapacity: {BeakCapacity}"; 
+        return baseStats + $", BeakCapacity: {BeakCapacity}";
     }
 }
 
@@ -168,10 +148,10 @@ public class Flamingo : Bird {
         color) {
         LegLength = legLength;
     }
-    
+
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", LegLength: {LegLength}"; 
+        return baseStats + $", LegLength: {LegLength}";
     }
 }
 
@@ -181,17 +161,16 @@ public class Swan : Bird {
     public Swan(int age, double weight, string name, string color, double neckLength) : base(age, weight, name, color) {
         NeckLength = neckLength;
     }
-    
+
     public override string Stats() {
         var baseStats = base.Stats();
-        return baseStats + $", NeckLength: {NeckLength}"; 
+        return baseStats + $", NeckLength: {NeckLength}";
     }
 }
 
 public interface IPerson {
-    void Talk(); 
+    void Talk();
 }
-
 
 public class WolfMan : Wolf, IPerson {
     public WolfMan(int age, double weight, string name) : base(age, weight, name) {
