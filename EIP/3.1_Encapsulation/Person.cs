@@ -21,13 +21,13 @@ public class Person {
     }
 
     /// <summary>
-    /// Gets or sets the age of the person. Age must be 0 or higher.
+    /// Gets or sets the age of the person. Age must be higher than 0.
     /// </summary>
     public int Age {
         get => age;
         set {
-            if (value < 0) {
-                throw new ArgumentException("Age must be 0 years or higher.");
+            if (value <= 0) {
+                throw new ArgumentException("Age must be higher than 0.");
             }
             age = value;
         }
